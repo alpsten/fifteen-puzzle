@@ -3,13 +3,12 @@ Fifteen Puzzle
 A Java-based implementation of the classic 15-puzzle game. The goal is to arrange 15 numbered tiles in order on a 4x4 grid by sliding them one at a time into the empty space.
 
 Features
-
 Object-oriented design: The code is split into multiple classes for better structure, clarity, and reusability.
 User interaction: Tiles can be moved by clicking, making the game intuitive to play.
 Random shuffling: The board is shuffled at the start to ensure a new challenge each game.
 Win detection: The game detects when the puzzle is solved and displays a victory message.
-Known Limitations
 
+Known Limitations
 Solvability: The current shuffling algorithm does not guarantee that every puzzle is solvable. A solution-checking algorithm could be added in the future.
 
 Class Name – Description
