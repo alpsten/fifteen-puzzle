@@ -1,27 +1,59 @@
 # Fifteen Puzzle
 
-A Java-based implementation of the classic 15-puzzle game. The goal is to arrange 15 numbered tiles in order on a 4x4 grid by sliding them one at a time into the empty space.
+A 15-puzzle project with two playable versions:
+
+- A Java Swing desktop app for local play.
+- A Vite + TypeScript web app that can be built into `docs/` and hosted on GitHub Pages.
 
 ## Features
 
-- **Object-oriented design**: The code is split into multiple classes for better structure, clarity, and reusability.  
-- **User interaction**: Tiles can be moved by clicking, making the game intuitive to play.  
-- **Random shuffling**: The board is shuffled at the start to ensure a new challenge each game.  
-- **Win detection**: The game detects when the puzzle is solved and displays a victory message.  
+- **Structured source layout**: The code is organized under `src/fifteenpuzzle` with separate `app`, `controller`, `logic`, `model`, and `ui` packages.
+- **Guaranteed solvable shuffling**: New games are generated from valid tile moves, so every board can be solved.
+- **Separate board model**: Puzzle state and move counting live in `PuzzleBoard`, while Swing classes only render the board and handle input.
+- **Refreshed Swing UI**: Colors, fonts, borders, and button styling live in a dedicated theme class instead of the application entry point.
 
-## Known Limitations
+## Project Structure
 
-- **Solvability**: The current shuffling algorithm does not guarantee that every puzzle is solvable. A solution-checking algorithm could be added in the future.
+| Path | Responsibility |
+|------|----------------|
+| `src/fifteenpuzzle/app` | Application startup |
+| `src/fifteenpuzzle/controller` | User-triggered actions |
+| `src/fifteenpuzzle/logic` | Puzzle rules, shuffling, win checks |
+| `src/fifteenpuzzle/model` | Board and tile state |
+| `src/fifteenpuzzle/ui` | Swing rendering and styling |
+| `web/` | Vite + TypeScript source for the web app |
+| `docs/` | Generated static build output for GitHub Pages |
 
-## Class Overview
+## Run The Java App
 
-| Class Name                      | Description                                                  |
-|--------------------------------|--------------------------------------------------------------|
-| `FifteenPuzzle.java`           | Main class that starts the application.                      |
-| `GameGrid.java`                | Manages the layout and tile placement on the board.          |
-| `GameTile.java`                | Represents an individual tile in the puzzle.                 |
-| `GameTileClickHandler.java`    | Handles user clicks on the tiles.                            |
-| `GameTileShuffler.java`        | Shuffles the tiles at the beginning of the game.             |
-| `NewGameHandler.java`          | Resets and starts a new game when triggered.                 |
-| `WinnerWinnerChickenDinner.java` | Displays the victory message when the puzzle is solved.    |
+Compile:
 
+```bash
+find src -name '*.java' -exec javac -d out {} +
+```
+
+Run:
+
+```bash
+java -cp out fifteenpuzzle.app.FifteenPuzzleApp
+```
+
+## Run The Web App Locally
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the Vite dev server:
+
+```bash
+npm run dev
+```
+
+Build the production site into `docs/`:
+
+```bash
+npm run build
+```

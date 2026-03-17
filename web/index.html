@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 Puzzle</title>
+</head>
+<body>
+  <div class="page-shell">
+    <main class="app-card">
+      <header class="hero">
+        <section class="goal-card" aria-label="Solved puzzle preview">
+          <p class="eyebrow">Goal</p>
+          <div class="goal-grid" id="goal-grid"></div>
+        </section>
+
+        <section class="hero-copy">
+          <p class="eyebrow">Play Online</p>
+          <h1>15 Puzzle</h1>
+          <p class="subtitle">Slide tiles into place. Every shuffle is solvable.</p>
+        </section>
+
+        <section class="status-card" aria-live="polite">
+          <p class="status-label">Moves</p>
+          <p class="status-value" id="move-count">0</p>
+        </section>
+      </header>
+
+      <section class="board-section">
+        <div class="board-shell">
+          <div class="board" id="board" aria-label="15 puzzle board"></div>
+        </div>
+      </section>
+
+      <footer class="controls">
+        <button class="primary-button" id="new-game-button" type="button">New Solvable Game</button>
+      </footer>
+    </main>
+
+    <div class="win-banner" id="win-banner" hidden>
+      <div class="win-banner-card" role="alertdialog" aria-modal="true" aria-labelledby="win-title">
+        <p class="eyebrow">Solved</p>
+        <h2 id="win-title">Puzzle completed</h2>
+        <p id="win-message">You solved the board.</p>
+        <button class="primary-button" id="play-again-button" type="button">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.ts"></script>
+</body>
+</html>
+
